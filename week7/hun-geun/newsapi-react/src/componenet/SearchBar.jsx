@@ -1,6 +1,6 @@
 import React from 'react';
-import style from './SearchBar.module.css';
 import axios from 'axios';
+import styled from 'styled-components';
 
 const SearchBar = (props) => {
   const input = React.useRef(null);
@@ -31,15 +31,46 @@ const SearchBar = (props) => {
     }
   }
 
+  const Div = styled.div`
+    box-shadow: #DCE2F0 0px 0px 0px 3px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 32.5px;
+    margin-top: 70px;
+  `
+  const Input = styled.input`
+    height: 20px;
+    border: 1.5px solid rgb(233,234,235);
+    border-radius: 15px;
+    padding:15px;
+  `
+  const Button = styled.button`
+    position: absolute;
+    margin: 0 10px;
+    right: 10px;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    &:hover{
+      background-color: #DCE2F0;
+    }
+  `
+  const Span = styled.span`
+    color: rgb(180, 180, 180);
+  `
   return (
-    <div className={style.searchBar}>
-        <input type="text" placeholder="Enter the word" name="name" ref={input}/>
-        <button>
-            <span className={style.materialSymbolsOutlined} onClick={inputCheck}>
+    <Div>
+        <Input type="text" placeholder="Enter the word" name="name" ref={input}/>
+        <Button>
+            <Span className="material-symbols-outlined" onClick={inputCheck}>
                 search
-            </span>
-        </button>
-    </div>
+            </Span>
+            <span></span>
+        </Button>
+    </Div>
   )
 }
 export default SearchBar;

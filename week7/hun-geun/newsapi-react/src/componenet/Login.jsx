@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import style from './Login.module.css'
+import styled from 'styled-components'
 import { validEmail, validPassword } from './LoginValid'
 
 export default function Login() {
@@ -33,8 +33,15 @@ export default function Login() {
         return ( validPassword.test(password)) ? true : false
     }
 
+    const Form = styled.form`
+        position:absolute;
+        top:70px;
+        left:20px;
+        display:flex;
+        flex-direction: column;   
+    `
     return (
-        <form className={style.login} onSubmit={LoginFunc}>
+        <Form onSubmit={LoginFunc}>
             <label htmlFor="id" >ID</label>
             <input type="text" onChange={(e)=>{setId(e.target.value)}} value={id} placeholder={idPlace}/>
             <br />
@@ -43,7 +50,7 @@ export default function Login() {
             <br />
             <button type="submit">로그인</button>
             <br />
-        </form>
+        </Form>
     )
 }
 
