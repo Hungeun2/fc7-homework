@@ -1,0 +1,7 @@
+form.login {
+    position:absolute;
+    top:70px;
+    left:20px;
+    display:flex;
+    flex-direction: column;   
+}
